@@ -1,7 +1,7 @@
 # encoding:utf-8
 
 import time
-from random import random
+
 
 import openai
 import openai.error
@@ -17,7 +17,7 @@ from common.log import logger
 from common.token_bucket import TokenBucket
 from config import conf, load_config
 import requests
-
+import random
 
 import QWeatherAPI
 from myKey import KEY
@@ -139,17 +139,29 @@ class ChatGPTBot(Bot, OpenAIImage):
                 )
             )
             if reply_content["completion_tokens"] == 0 and len(reply_content["content"]) > 0:
-                if "lyc" in query:
+                if "还是" in query:
+                    a = query.split("还是")[0]
+                    b = query.split("还是")[1]
+                    c = random.randint(0, 100)
+                    if c>=50:
+                        reply_content["content"] = a
+                    else:
+                        reply_content["content"] = b
+                elif "lyc" in query:
                     reply_content["content"]= "lyc别装逼"
                 elif "sp" in query:
                     reply_content["content"] = "sp傻逼"
                 elif "cxsj" in query:
                     reply_content["content"] = "彭嘉新"
+                elif "历史版本" in query:
+                    reply_content["content"] = "5月7日bot更新(版本0.2.0)\n更新内容：\n【增加功能】查看天气\n【增加功能】查看微博热搜\n【增加功能】骂人功能"
+                elif "版本" in query:
+                    reply_content["content"] = "5月8日bot更新(版本0.2.1)\n更新内容：\n【修复】稳定了bot的骂人功力\n【修复】修复了sp和lyc在判断中的优先级\n【增加功能】帮忙选择 句内有“还是”两个字时 我会帮你做选择\n【增加功能】支持版本/历史版本查询\n\n每日0:00-10:00准时维护更新 无法使用"
                 elif "下次顺序" in query:
                     reply_content["content"] = "lh1 lyc2 jhl3 sp4"
                 elif "顺序" in query:
                     reply_content["content"] = "lyc1 jhl2 sp3 lh4"
-                elif "m" in query:
+                elif "mmw" in query:
                     reply_content["content"] = "妹妹婉婉嘞"
                 elif "天气" in query:
                     reply_content["content"] = QWeatherAPI.aaa()
@@ -215,6 +227,7 @@ class ChatGPTBot(Bot, OpenAIImage):
                 elif "操" or "妈" or "死" or "傻" or "b" or "c" or "草" or "逼" in query:
                     try:
                         response = requests.get("https://act.jiawei.xin:10086/lib/api/maren.php?catalog=yang")
+                        #common qiu yang
                         if response.status_code == 200:
                             reply_content["content"] = response.text.strip()  # 返回去除首尾空白字符的文本
                         else:
