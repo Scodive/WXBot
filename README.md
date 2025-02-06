@@ -13,52 +13,6 @@ WeChat bot assistant that can adapt multiple LLMs, including GPT3.5/GPT4.0/Claud
 - [x] **丰富插件：** 支持个性化插件扩展，已实现多角色切换、文字冒险、敏感词过滤、聊天记录总结、文档总结和对话、联网搜索等插件
 - [x] **知识库：** 通过上传知识库文件自定义专属机器人，可作为数字分身、智能客服、私域助手使用，基于 [LinkAI](https://link-ai.tech) 实现
 
-# 演示
-
-https://github.com/zhayujie/chatgpt-on-wechat/assets/26161723/d5154020-36e3-41db-8706-40ce9f3f1b1e
-
-Demo made by [Visionn](https://www.wangpc.cc/)
-
-# 商业支持
-
-> 我们还提供企业级的 **AI应用平台**，包含知识库、Agent插件、应用管理等能力，支持多平台聚合的应用接入、客户端管理、对话管理，以及提供
-SaaS服务、私有化部署、稳定托管接入 等多种模式。
->
-> 目前已在私域运营、智能客服、企业效率助手等场景积累了丰富的 AI 解决方案， 在电商、文教、健康、新消费等各行业沉淀了 AI 落地的最佳实践，致力于打造助力中小企业拥抱 AI 的一站式平台。
-企业服务和商用咨询可联系产品顾问：
-
-<img width="240" src="https://img-1317903499.cos.ap-guangzhou.myqcloud.com/docs/product-manager-qrcode.jpg">
-
-# 开源社区
-
-添加小助手微信加入开源项目交流群：
-
-<img width="240" src="./docs/images/contact.jpg">
-
-# 更新日志
-
->**2024.04.26：** [1.6.0版本](https://github.com/zhayujie/chatgpt-on-wechat/releases/tag/1.6.0)，新增 Kimi 接入、gpt-4-turbo版本升级、文件总结和语音识别问题修复
-
->**2024.03.26：** [1.5.8版本](https://github.com/zhayujie/chatgpt-on-wechat/releases/tag/1.5.8) 和 [1.5.7版本](https://github.com/zhayujie/chatgpt-on-wechat/releases/tag/1.5.7)，新增 GLM-4、Claude-3 模型，edge-tts 语音支持
-
->**2024.01.26：** [1.5.6版本](https://github.com/zhayujie/chatgpt-on-wechat/releases/tag/1.5.6) 和 [1.5.5版本](https://github.com/zhayujie/chatgpt-on-wechat/releases/tag/1.5.5)，钉钉接入，tool插件升级，4-turbo模型更新
-
->**2023.11.11：** [1.5.3版本](https://github.com/zhayujie/chatgpt-on-wechat/releases/tag/1.5.3) 和 [1.5.4版本](https://github.com/zhayujie/chatgpt-on-wechat/releases/tag/1.5.4)，新增通义千问模型、Google Gemini
-
->**2023.11.10：** [1.5.2版本](https://github.com/zhayujie/chatgpt-on-wechat/releases/tag/1.5.2)，新增飞书通道、图像识别对话、黑名单配置
-
->**2023.11.10：** [1.5.0版本](https://github.com/zhayujie/chatgpt-on-wechat/releases/tag/1.5.0)，新增 `gpt-4-turbo`, `dall-e-3`, `tts` 模型接入，完善图像理解&生成、语音识别&生成的多模态能力
-
->**2023.10.16：** 支持通过意图识别使用LinkAI联网搜索、数学计算、网页访问等插件，参考[插件文档](https://docs.link-ai.tech/platform/plugins)
-
->**2023.09.26：** 插件增加 文件/文章链接 一键总结和对话的功能，使用参考：[插件说明](https://github.com/zhayujie/chatgpt-on-wechat/tree/master/plugins/linkai#3%E6%96%87%E6%A1%A3%E6%80%BB%E7%BB%93%E5%AF%B9%E8%AF%9D%E5%8A%9F%E8%83%BD)
-
->**2023.08.08：** 接入百度文心一言模型，通过 [插件](https://github.com/zhayujie/chatgpt-on-wechat/tree/master/plugins/linkai) 支持 Midjourney 绘图
-
->**2023.06.12：** 接入 [LinkAI](https://link-ai.tech/console) 平台，可在线创建领域知识库，打造专属客服机器人。使用参考 [接入文档](https://link-ai.tech/platform/link-app/wechat)。
-
-更早更新日志查看: [归档日志](/docs/version/old-version.md)
-
 # 快速开始
 
 快速开始文档：[项目搭建文档](https://docs.link-ai.tech/cow/quick-start)
@@ -83,11 +37,11 @@ SaaS服务、私有化部署、稳定托管接入 等多种模式。
 **(1) 克隆项目代码：**
 
 ```bash
-git clone https://github.com/zhayujie/chatgpt-on-wechat
-cd chatgpt-on-wechat/
+git clone https://github.com/Scodive/WXBot
+cd WXBot/
 ```
 
-注: 如遇到网络问题可选择国内镜像 https://gitee.com/zhayujie/chatgpt-on-wechat
+
 
 **(2) 安装核心依赖 (必选)：**
 > 能够使用`itchat`创建机器人，并具有文字交流功能所需的最小依赖集合。
@@ -179,8 +133,6 @@ pip3 install -r requirements-optional.txt
 + `linkai_api_key`: LinkAI Api Key，可在 [控制台](https://link-ai.tech/console/interface) 创建
 + `linkai_app_code`: LinkAI 应用code，选填
 
-**本说明文档可能会未及时更新，当前所有可选的配置项均在该[`config.py`](https://github.com/zhayujie/chatgpt-on-wechat/blob/master/config.py)中列出。**
-
 ## 运行
 
 ### 1.本地运行
@@ -251,29 +203,3 @@ sudo docker logs -f chatgpt-on-wechat
 volumes:
   - ./config.json:/app/plugins/config.json
 ```
-
-### 4. Railway部署
-
-> Railway 每月提供5刀和最多500小时的免费额度。 (07.11更新: 目前大部分账号已无法免费部署)
-
-1. 进入 [Railway](https://railway.app/template/qApznZ?referralCode=RC3znh)
-2. 点击 `Deploy Now` 按钮。
-3. 设置环境变量来重载程序运行的参数，例如`open_ai_api_key`, `character_desc`。
-
-**一键部署:**
-  
-  [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/qApznZ?referralCode=RC3znh)
-
-## 常见问题
-
-FAQs： <https://github.com/zhayujie/chatgpt-on-wechat/wiki/FAQs>
-
-或直接在线咨询 [项目小助手](https://link-ai.tech/app/Kv2fXJcH)  (beta版本，语料完善中，回复仅供参考)
-
-## 开发
-
-欢迎接入更多应用，参考 [Terminal代码](https://github.com/zhayujie/chatgpt-on-wechat/blob/master/channel/terminal/terminal_channel.py) 实现接收和发送消息逻辑即可接入。 同时欢迎增加新的插件，参考 [插件说明文档](https://github.com/zhayujie/chatgpt-on-wechat/tree/master/plugins)。
-
-## 联系
-
-欢迎提交PR、Issues，以及Star支持一下。程序运行遇到问题可以查看 [常见问题列表](https://github.com/zhayujie/chatgpt-on-wechat/wiki/FAQs) ，其次前往 [Issues](https://github.com/zhayujie/chatgpt-on-wechat/issues) 中搜索。个人开发者可加入开源交流群参与更多讨论，企业用户可联系[产品顾问](https://img-1317903499.cos.ap-guangzhou.myqcloud.com/docs/product-manager-qrcode.jpg)咨询。
